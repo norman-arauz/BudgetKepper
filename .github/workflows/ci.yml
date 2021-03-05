@@ -6,7 +6,7 @@ jobs:
   build:
     name: Build
     env:
-      SCHEME: "BudgetKepper"
+      SCHEME: "BudgetKeeper"
       DEVICE: "iPhone 11"
       DERIVED_DATA_PATH: "DerivedData"
     runs-on: macOS-latest
@@ -27,7 +27,7 @@ jobs:
     env:
       DEVICE: "iPhone 11"
       DERIVED_DATA_PATH: "DerivedData"
-      UNIT_TEST_TARGET: "BudgetKepperTests"
+      UNIT_TEST_TARGET: "BudgetKeeperTests"
     runs-on: macOS-latest
     needs: build
     steps:
@@ -51,7 +51,7 @@ jobs:
     env:
       DEVICE: "iPhone 11"
       DERIVED_DATA_PATH: "DerivedData"
-      UI_TEST_TARGET: "BudgetKepperUITests"
+      UI_TEST_TARGET: "BudgetKeeperUITests"
     runs-on: macOS-latest
     needs: build
     steps:
