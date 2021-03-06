@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build-and-test:
+    macos:
+      xcode: "12.0"
+    enviorement:
+      FL_OUTPUT_DIR: output
+    steps:
+      - checkout
+      - run:
+        name: Build and tests
+        command: fastlane scan
+      enviorement:
+        SCAN_DEVICE: iPhone 11
+        SCAN_SCHEME: BudgetKeeper
+      - store-test-result:
+        path: output/scan
+      - store-artifacts:
+        path: output
+
+workflows:
+  version: 2
+  build-and-test:
+  jobs:
+    - build-and-test
