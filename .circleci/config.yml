@@ -6,12 +6,6 @@ jobs:
       xcode: 12.0.0
     steps:
       - checkout
-      - run:
-          name: Build and tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 11
-            SCAN_SCHEME: BudgetKeeper
       - store_artifacts:
           path: output
       - store_test_results:
