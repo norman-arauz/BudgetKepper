@@ -1,7 +1,5 @@
 # .circleci/config.yml
 version: 2.1
-on:
-  push
 jobs:
   build-and-test:
     macos:
@@ -19,6 +17,6 @@ jobs:
       - store_test_results:
           path: output/scan
 workflows:
-  build-test-adhoc:
+  build-and-test:
     jobs:
       - build-and-test
