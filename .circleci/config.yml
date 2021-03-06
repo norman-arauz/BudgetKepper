@@ -1,4 +1,6 @@
 version: 2
+on:
+  push
 jobs:
   build-and-test:
     macos:
