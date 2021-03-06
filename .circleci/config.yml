@@ -12,13 +12,13 @@ jobs:
       - run:
         name: Build and tests
         command: fastlane scan
-      enviorement:
-        SCAN_DEVICE: iPhone 11
-        SCAN_SCHEME: BudgetKeeper
-      - store-test-result:
-        path: output/scan
-      - store-artifacts:
-        path: output
+        enviorement:
+          SCAN_DEVICE: iPhone 11
+          SCAN_SCHEME: BudgetKeeper
+            - store-test-result:
+              path: output/scan
+            - store-artifacts:
+              path: output
 
 workflows:
   version: 2
