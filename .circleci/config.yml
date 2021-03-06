@@ -1,16 +1,18 @@
-# .circleci/config.yml
 version: 2.1
-jobs:
-  build-and-test:
-    macos:
-      xcode: 12.0.0
-    steps:
-      - checkout
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
-workflows:
-  build-and-test:
-    jobs:
-      - build-and-test
+jobs: # a basic unit of work in a run
+  build: # runs not using `Workflows` must have a `build` job as entry point
+    macos:  # indicate that we are using the macOS executor
+      xcode: 12.0.0 # indicate our selected version of Xcode
+    steps: # a series of commands to run
+      - checkout  # pull down code from your version control system.
+      - run:
+          # run our tests using xcode's cli tool `xcodebuild`
+          name: Run Unit Tests
+          command: xcodebuild test -scheme BudgetKeeper
+      - run:
+          # build our application
+          name: Build Application
+          command: xcodebuild
+      - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
+          path: app.zip
+          destination: app
