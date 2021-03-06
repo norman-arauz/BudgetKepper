@@ -1,17 +1,19 @@
-version: 2
+version: 2.1
 on:
   push
 jobs:
   build-and-test:
     macos:
-      xcode: "12.0"
-    enviorement:
-      FL_OUTPUT_DIR: output
+      xcode: 12.0.0
     steps:
       - checkout
       - run:
-        name: Build and tests
-        command: fastlane scan
-        enviorement:
-          SCAN_DEVICE: iPhone 11
-          SCAN_SCHEME: BudgetKeeper
+          name: Build and tests
+          command: fastlane scan
+          environment:
+            SCAN_DEVICE: iPhone 11
+            SCAN_SCHEME: BudgetKeeper
+      - store_artifacts:
+          path: output
+      - store_test_results:
+          path: output/scan
